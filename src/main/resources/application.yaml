@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: innovatracker
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/innovatracker?currentSchema=innova
+    username: postgres
+    password: ceub123456
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+server:
+  port: 7777
+
+
+app:
+  jwt:
+    secret: 9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b
+    expiration-ms: 86400000
+
+
+springdoc:
+  swagger-ui:
+    operationsSorter: method
+    tagsSorter: alpha
+    doc-expansion: none
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
