@@ -35,20 +35,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-
 import java.net.URI;
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/api/pessoas")
 @RequiredArgsConstructor
-@Tag(name = "Pessoas", description = "Endpoints para gerenciamento de cadastro de pessoas/usuários")
+@Tag(name = "CRUD Pessoas", description = "Endpoints para gerenciamento de cadastro de pessoas/usuários")
 public class TbPessoaController {
-
-
     private final TbPessoaService pessoaService;
-
 
     @Operation(summary = "Listar pessoas paginadas", description = "Retorna uma lista paginada de pessoas ordenadas por nome.")
     @ApiResponse(responseCode = "200", description = "Lista paginada recuperada com sucesso")
@@ -81,9 +76,9 @@ public class TbPessoaController {
     })
     @GetMapping("/email")
     public ResponseEntity<PessoaResponseDTO> buscarPorEmail(
-            @Parameter(description = "Endereço de e-mail exato", example = "joao@empresa.com")
-            @RequestParam String valor) {
-        return ResponseEntity.ok(pessoaService.buscarPorEmail(valor));
+            @Parameter(description = "Endereço de e-mail exato", example = "nome@empresa.com")
+            @RequestParam String email) {
+        return ResponseEntity.ok(pessoaService.buscarPorEmail(email));
     }
 
 

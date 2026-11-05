@@ -1,12 +1,8 @@
 package hiragi.innovatracker.dto;
 
-
 import hiragi.innovatracker.model.TbPessoa;
-
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 
 public record PessoaResponseDTO(
         Long idtPessoa,

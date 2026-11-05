@@ -1,8 +1,6 @@
 package hiragi.innovatracker.dto;
 
-
 import hiragi.innovatracker.model.TbPessoa;
-
 
 public record PessoaResumoDTO(
         Long idtPessoa,

@@ -1,6 +1,5 @@
 package hiragi.innovatracker.repository;
 
-
 import hiragi.innovatracker.model.TbIdeia;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,13 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-
 import java.util.List;
-
 
 @Repository
 public interface TbIdeiaRepository extends JpaRepository<TbIdeia, Long> {
-
 
     // Busca aproximada por nome (LIKE %...%, ignorando maiúsculas/minúsculas)
     Page<TbIdeia> findByNmeIdeiaContainingIgnoreCase(String nmeIdeia, Pageable pageable);

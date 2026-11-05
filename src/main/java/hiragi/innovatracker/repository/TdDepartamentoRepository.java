@@ -1,6 +1,7 @@
 package hiragi.innovatracker.repository;
 
 import hiragi.innovatracker.model.TdDepartamento;
+import hiragi.innovatracker.model.TdDepartamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,8 @@ public interface TdDepartamentoRepository extends JpaRepository<TdDepartamento, 
 
     Optional<TdDepartamento> findBySglDepartamentoIgnoreCase(String sglDepartamento);
 
+    List<TdDepartamento> findBySglDepartamentoContainingOrNmeDepartamentoContaining(String sgl, String nme);
+
     boolean existsBySglDepartamentoIgnoreCase(String sglDepartamento);
 
     // Busca exata pelo nome
@@ -20,7 +23,6 @@ public interface TdDepartamentoRepository extends JpaRepository<TdDepartamento, 
     boolean existsByNmeDepartamentoIgnoreCase(String nmeDepartamento);
 
     // Busca parcial pelo nome (LIKE %valor%), ordenada
-    List<TdDepartamento> findByNmeDepartamentoContainingIgnoreCaseOrderByNmeDepartamentoAsc(
-            String nmeDepartamento
-    );
+    List<TdDepartamento> findByNmeDepartamentoContainingIgnoreCaseOrderByNmeDepartamentoAsc(String nmeDepartamento);
+
 }

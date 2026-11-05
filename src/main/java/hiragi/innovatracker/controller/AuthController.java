@@ -5,6 +5,8 @@ import hiragi.innovatracker.dto.LoginRequestDTO;
 import hiragi.innovatracker.dto.LoginResponseDTO;
 import hiragi.innovatracker.dto.PessoaResumoDTO;
 import hiragi.innovatracker.service.AuthService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
+@Tag(name = "URL de Login", description = "Fazer login no backend e saber quem está logado")
 public class AuthController {
 
 
@@ -27,6 +30,7 @@ public class AuthController {
 
     /** Autentica a pessoa e devolve o token JWT. Rota pública. */
     @PostMapping("/login")
+    @Operation(summary = "Recebe email e senha e retorna um token se tiver sucesso no login")
     public ResponseEntity<LoginResponseDTO> login(@Valid @RequestBody LoginRequestDTO request) {
         return ResponseEntity.ok(authService.login(request));
     }

@@ -1,6 +1,5 @@
 package hiragi.innovatracker.test;
 
-
 import hiragi.innovatracker.InnovatrackerApplication;
 import hiragi.innovatracker.model.TbIdeia;
 import hiragi.innovatracker.model.TbPessoa;
@@ -12,11 +11,9 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
-
 import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.Scanner;
-
 
 public class TbIdeiaTest {
 
@@ -87,8 +84,9 @@ public class TbIdeiaTest {
     private static void consultar(TbIdeiaRepository ideiaRep) {
         System.out.println("\n--- Lista de Ideias ---");
         ideiaRep.findAll().forEach(i ->
-                System.out.printf("ID: %d | Nome: %s | Orçamento: R$ %.2f | Status: %s%n",
-                        i.getIdtIdeia(), i.getNmeIdeia(), i.getVlrOrcamentoIdeia(), i.getStsIdeia())
+                System.out.printf("ID: %d | Categoria: %s | Pessoa: %s%nNome Ideia: %s | Orçamento: R$ %.2f | Status: %s%n",
+                        i.getIdtIdeia(), i.getTdCategoria().getNmeCategoria(),
+                        i.getPessoa().getNmePessoa(), i.getNmeIdeia(), i.getVlrOrcamentoIdeia(), i.getStsIdeia())
         );
     }
 
@@ -121,10 +119,8 @@ public class TbIdeiaTest {
             TdCategoriaRepository categoriaRep = ctx.getBean(TdCategoriaRepository.class);
             TbPessoaRepository pessoaRep = ctx.getBean(TbPessoaRepository.class);
 
-
             Scanner leitor = new Scanner(System.in);
             boolean sair = false;
-
 
             while (!sair) {
                 System.out.println("""

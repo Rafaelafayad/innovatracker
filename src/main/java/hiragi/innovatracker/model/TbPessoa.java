@@ -45,7 +45,7 @@ public class TbPessoa {
     private Long idtPessoa;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(
             name = "cod_departamento",
             referencedColumnName = "idt_departamento",

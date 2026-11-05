@@ -21,9 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class AuthService {
 
-
     private static final String CREDENCIAIS_INVALIDAS = "E-mail ou senha inválidos";
-
 
     private final TbPessoaRepository pessoaRepository;
     private final PasswordEncoder passwordEncoder;
@@ -59,7 +57,7 @@ public class AuthService {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 
-        String senhaPura = "ceub123456";
+        String senhaPura = "654321";
         String hashGerado = encoder.encode(senhaPura);
 
 

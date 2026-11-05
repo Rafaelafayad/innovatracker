@@ -41,7 +41,7 @@ public class TbIdeia {
     private Long idtIdeia;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(
             name = "cod_pessoa",
             referencedColumnName = "idt_pessoa",
@@ -51,7 +51,7 @@ public class TbIdeia {
     private TbPessoa pessoa;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(
             name = "cod_categoria",
             referencedColumnName = "idt_categoria",
